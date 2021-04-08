@@ -5,7 +5,6 @@ import useStyles from "./styles";
 const Cart = ({ cart }) => {
   const classes = useStyles();
 
-  const isEmpty = !cart.line_items.length;
   const EmptyCart = () => (
     <Typography variant="subtitle1">
       You have no items in your shopping cart. Try adding some!
@@ -49,6 +48,9 @@ const Cart = ({ cart }) => {
     </>
   );
 
+  if (!cart.line_items) return "Loading...";
+
+  const isEmpty = !cart.line_items.length;
   return (
     <Container>
       <div className={classes.toolbar} />
