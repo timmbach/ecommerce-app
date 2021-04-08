@@ -1,4 +1,3 @@
-import classes from "*.module.css";
 import {
   AppBar,
   Badge,
@@ -8,19 +7,21 @@ import {
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import React from "react";
+import useStyles from "./styles";
 
 import logo from "../../assets/tim-store.png";
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
+  const classes = useStyles();
   return (
     <div>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
-          <Typography>
+          <Typography className={classes.title}>
             <img
               src={logo}
               alt="Timothy.js"
-              height="25px"
+              height="50px"
               className={classes.image}
             />
             Timothy's Store
@@ -28,7 +29,7 @@ const Navbar = () => {
           <div className={classes.grow} />
           <div className={classes.button}>
             <IconButton aria-label="Show Cart Items" color="inherit">
-              <Badge badgeContent={2} color="secondary">
+              <Badge badgeContent={totalItems} color="secondary">
                 <ShoppingCart />
               </Badge>
             </IconButton>
