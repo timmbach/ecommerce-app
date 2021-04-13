@@ -10,7 +10,7 @@ import React from "react";
 
 import useStyles from "./styles";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, onUpdateItemQty, onRemoveItem }) => {
   const classes = useStyles();
   return (
     <Card>
@@ -27,14 +27,30 @@ const CartItem = ({ item }) => {
       </CardContent>
       <CardActions className={classes.cardActions}>
         <div className={classes.buttons}>
-          <Button type="button" size="small">
+          <Button
+            type="button"
+            size="small"
+            onClick={() => onUpdateItemQty(item.id, item.quantity - 1)}
+          >
             -
           </Button>
           <Typography>{item.quantity}</Typography>
-          <Button type="button" size="small">
+          <Button
+            type="button"
+            size="small"
+            onClick={() => onUpdateItemQty(item.id, item.quantity + 1)}
+          >
             +
           </Button>
         </div>
+        <Button
+          variant="contained"
+          type="button"
+          color="secondary"
+          onClick={() => onRemoveItem(item.id)}
+        >
+          Remove
+        </Button>
       </CardActions>
     </Card>
   );
