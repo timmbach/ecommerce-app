@@ -1,3 +1,6 @@
+## Link to site:
+https://tim-ecommerce.netlify.app/
+
 ## E-Commerce store
 
 This is an E-Commerce store built  by yours truly with a personalized commerce js API that features a cart and checkout functionality.
